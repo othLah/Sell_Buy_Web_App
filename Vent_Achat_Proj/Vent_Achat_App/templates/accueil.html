@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="{% static 'style/accueil.css' %}" />
+		<title>Accueil</title>
+		<script type="text/javascript" src="{% static 'scripts/accueil.js' %}"></script>
+	</head>
+	<body onload="set_date();">
+		<header>
+			<h1 id="h1_1">Electro-SB</h1>
+			<form method="GET" action="{% url 'acheter_page' %}" id="f_search">
+				{{ search_bar.bar }}
+				<button type="submit"><img src="{% static 'images/search.png' %}" title="cherche maintenant" /></button>
+			</form>
+			<ul id="ul1">
+				<li><a href="{% url 'accueil_page' %}">Accueil</a></li>
+				<li><a href="{% url 'acheter_page' %}">Acheter</a></li>
+				<li><a href="{% url 'vendre_page' %}">Vendre</a></li>
+				{% if 'userID' in request.session %}
+				<li><a href="{% url 'profile_page' %}">Profile</a></li>
+				<li><a href="{% url 'deconnexion_processus' %}">Déconnexion</a></li>
+				{% else %}
+				<li><a href="{% url 'enregistrer_page' %}">S'enregistrer</a></li>
+				<li><a href="{% url 'connexion_page' %}">Connexion</a></li>
+				{% endif %}
+			</ul>
+		</header>
+		<div id="div1">
+			<section id="sec1">
+				<h2>Catégories</h2>
+				<div id="div1_1">
+					<div class="div1_1_1">
+						<a href="{% url 'acheter_page' 'Téléphone' %}">
+							<div>
+								<p><img src="../static/images/products/phone.png" alt="phone_image" /></p>
+								<p class="cat_name">Téléphones</p>
+							</div>
+						</a>
+						<a href="{% url 'acheter_page' 'Tablette' %}">
+							<div>
+								<p><img src="../static/images/products/tablet.png" alt="tablet_image" /></p>
+								<p class="cat_name">Tablettes</p>
+							</div>
+						</a>
+						<a href="{% url 'acheter_page' 'Ordinateur' %}">
+							<div>
+								<p><img src="../static/images/products/computer.png" alt="computer_image" /></p>
+								<p class="cat_name">Ordinateurs</p>
+							</div>
+						</a>
+					</div>
+					<div class="div1_1_1">
+						<a href="{% url 'acheter_page' 'Appareil Photo' %}">
+							<div>
+								<p><img src="../static/images/products/camera.png" alt="camera_image" /></p>
+								<p class="cat_name">Appreils Photo</p>
+							</div>
+						</a>
+						<a href="{% url 'acheter_page' 'Télévision' %}">
+							<div>
+								<p><img src="../static/images/products/tv.png" alt="tv_image" /></p>
+								<p class="cat_name">Télévisions</p>
+							</div>
+						</a>
+						<a href="{% url 'acheter_page' 'Autre' %}">
+							<div>
+								<p><img src="../static/images/products/other.png" alt="other_image" /></p>
+								<p class="cat_name">Autres</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section id="recommended">
+				<h2>Nous Vous Recommandons</h2>
+				<div id="div_r">
+					{% for prod in recommended_prods %}
+					<div class="r_1">
+						<a href="{% url 'produit_page' prod.id %}" title="product 1">
+							<p><img src="{{ prod.photo1.url }}" alt="photo1" /></p>
+							<div>
+								<h3>{{ prod.titre }}</h3>
+								<div>
+									<p>{{ prod.date_depot|date:"d/m/Y" }}</p>
+									<p>{{ prod.prix }}DH</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</section>
+			<section id="sec2">
+				<div class="div2">
+					<article id="art1">
+						<h2><img src="../static/images/feathers/about.png" alt="about_image" /><span>Notre Site</span></h2>
+						<p>electro-sb.ma est un site de e-commerce adressé à tous les marocains pour acheter et vendre des matériels électroniques (téléphone, télévision, …). Le site contient un espace pour consulter tous les produits, leurs prix, leurs apparences … aussi pour consulter vos ventes, les modifiés, les supprimés …</p>
+					</article>
+					<article id="art2">
+						<h2><img src="../static/images/feathers/payment.png" alt="payment_image" /><span>Paiement</span></h2>
+						<p>Le système de payement pour notre site est "PayPal", ce choix est fait après une comparaison entre tout autre système de payement, leur avantage et leur inconvénient. Pour ceux qui ne connait pas Paypal, vous pouvez facilement avoir un compte paypal, <a href="https://www.paypal.com/fr/home" title="Paypal Site" target="_blank">par içi</a>, c'est sécurisé, simple, rapide et gratuit.</p>
+					</article>
+				</div>
+				<div class="div2">
+					<article id="art3">
+						<h2><img src="../static/images/feathers/security.png" alt="security_image" /><span>Sécurité</span></h2>
+						<p>electro-sb.ma offre une sécurité spéciale : Vous ne pouvez s’enregistrer qu’après l’insertion de votre de toute vos informations - Vous ne pouvez commencer à vendre ou acheter qu’après la validation de votre compte - Le vendeur ne reçoit son argent qu’après l’arrivée du produit à vous...</p>
+					</article>
+				</div>
+			</section>
+		</div>
+		<footer>
+			<h1>Electro-SB</h1>
+			<div id="div3">
+				<div id="div3_1">
+					<h2>NOUS SUIVRE</h2>
+					<ul id="ul2">
+						<li><a href="https://twitter.com/" title="go to twitter" target="_blank"><img src="../static/images/contact_us/twitter.png" alt="twitter_image" /></a></li>
+						<li><a href="https://facebook.com" title="go to facebook" target="_blank"><img src="../static/images/contact_us/facebook.png" alt="facebook_image" /></a></li>
+						<li><a href="https://youtube.com" title="go to youtube" target="_blank"><img src="../static/images/contact_us/youtube.png" alt="youtube_iage" /></a></li>
+					</ul>
+				</div>
+				<div id="div3_2">
+					<h2>NOUS CONTACTER</h2>
+					<p><a href="mailto:xxx@yyy.zzz" title="Envoyer Email">Envoyer un email</a></p>
+				</div>
+				<div id="div3_3">
+					<h2>Date - Temps</h2>
+					<div>
+						<p id="date"></p>
+						<p id="temps"></p>
+					</div>
+					<p>&#169; Copyright 2018</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

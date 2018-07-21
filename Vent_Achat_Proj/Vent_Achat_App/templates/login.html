@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="{% static 'style/login.css' %}">
+		<title>Connecter</title>
+	</head>
+	<body>
+		<div id="div1">
+			<h1>Electro-SB</h1>
+			<form method="POST" action="{% url 'connexion_processus' %}">
+			{% csrf_token %}
+				<p>{{ inputs.email_username }}</p>
+				<p>{{ inputs.password }}</p>
+				<p><input value="Connecter" type="submit"></p>
+				<div id="div2">
+					<p><a href="{% url 'mdp_email_page' %}" title="réinstaller mot de passe">Mot de passe oublié?</a></p>
+					<p><a href="{% url 'enregistrer_page' %}" title="register gratuitement">Enregistrer</a></p>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

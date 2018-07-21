@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="{% static 'style/register.css' %}">
+		<title>Enregistrer</title>
+	</head>
+	<body>
+		<form method="POST" action="{% url 'enregistrement_processus' %}">
+		{% csrf_token %}
+			<h1>Electro-SB</h1>
+			<div id="div1">
+				<div id="div1_1">
+					<p>{{ inputs.username }}</p>
+					<p>{{ inputs.email }}</p>
+					<p>{{ inputs.password1 }}</p>
+					<p>{{ inputs.password2 }}</p>
+				</div>
+				<div id="div1_2">
+					<div id="div1_2_1">
+						{% for s in inputs.sexe %}
+							<p>{{ s.tag }}<label for="{{ s.id_for_label }}">{{ s.choice_label }}</label></p>
+						{% endfor %}
+					</div>
+					<div>
+						<p class="in2">{{ inputs.nom }}</p>
+						<p class="in2">{{ inputs.prenom }}</p>
+					</div>
+					<div>
+						<p class="in2">{{ inputs.rue_immeuble }}</p>
+						<p class="in2">{{ inputs.numero }}</p>
+						<p class="in2">{{ inputs.ville }}</p>
+					</div>
+					<div>
+						<p>{{ inputs.code_postal }}</p>
+						<p>
+							{{ inputs.pays }}
+						</p>
+						<p>{{ inputs.tele }}</p>
+					</div>
+				</div>
+			</div>
+			<p id="last_p"><input type="submit" value="Enregistrer" /></p>
+		</form>
+	</body>
+</html>

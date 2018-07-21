@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Verification</title>
+		<link rel="stylesheet" href="{% static 'style/verifier.css' %}" />
+		<script type="text/javascript" src="{% static 'scripts/verify_page.js' %}"></script>
+	</head>
+	<body>
+		<form method="POST" action="{% url 'verifier_process' %}" id="div1">
+		{% csrf_token %}
+			<div id="div1_1">
+				<p>Nous avons envoyer un code de vérification à votre email.<br/>Veuiller l'inséré ci-dessous</p>
+			</div>
+			<div id="div1_2">
+				<p>{{ inputs.code_ch }}</p>
+				<p><input type="button" value="Renvoyer" onclick="click_resend();"/><input type="submit" value="Vérifier" /></p>
+			</div>
+		</form>
+	</body>
+</html>

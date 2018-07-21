@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="{% static 'style/modifier_annoce.css' %}" />
+		<title>Modifier Annonce</title>
+		<script type="text/javascript" src="{% static 'scripts/modifier_annonce.js' %}"></script>
+	</head>
+	<body onload="upload_page();">
+		<header>
+			<h1 id="h1_1">Electro-SB</h1>
+			<form method="GET" action="{% url 'acheter_page' %}" id="f_search">
+				{{ search_bar.bar }}
+				<button type="submit" id="search_butt"><img src="{% static 'images/search.png' %}" title="cherche maintenant" /></button>
+			</form>
+			<ul id="ul1">
+				<li><a href="{% url 'accueil_page' %}">Accueil</a></li>
+				<li><a href="{% url 'acheter_page' %}">Acheter</a></li>
+				<li><a href="{% url 'vendre_page' %}">Vendre</a></li>
+				<li><a href="{% url 'profile_page' %}">Profile</a></li>
+				<li><a href="{% url 'deconnexion_processus' %}">Déconnexion</a></li>
+			</ul>
+		</header>
+		<section>
+			<form method="POST" action="{% url 'modifier_annonce_process' ann_fields.id %}" id="form_1">
+			{% csrf_token %}
+				<div id="div_f1">
+					<div id="f1_">
+						<h2>Titre</h2>
+						<p>{{ f_inputs.titre }}</p>
+					</div>
+					<div id="f1_2">
+						<h2>Catégorie</h2>
+						<p>{{ f_inputs.categorie }}</p>
+					</div>
+					<div id="f1_3">
+						<h2>Prix</h2>
+						<p>{{ f_inputs.prix }}  <span id="s1">DH</span></p>
+					</div>
+				</div>
+				<div id="div_f2">
+					<div id="f2_1">
+						<h2>Photos</h2>
+					</div>
+					<div id="f2_2">
+						<p><img id="big_one" src="" alt="BIG PHOTO"></p>
+						<div>
+							<p id="small_p1">
+								<img id="small_img1" src="{{ ann_fields.photo1.url }}" alt="photo1" onclick="change_pic(1);" />
+								{{ f_inputs.photo1 }}
+							</p>
+							<p id="small_p2">
+								<input type="button" value="X" class="X_del" title="supprimer photo2" onclick="del_photo(2);" />
+								<img id="small_img2"  src="{{ ann_fields.photo2.url }}" alt="photo2" onclick="change_pic(2);" />
+								{{ f_inputs.photo2 }}
+							</p>
+							<p id="small_p3">
+								<input type="button" value="X" class="X_del" title="supprimer photo2" onclick="del_photo(3);" />
+								<img id="small_img3"  src="{{ ann_fields.photo3.url }}" alt="photo3" onclick="change_pic(3);" />
+								{{ f_inputs.photo3 }}
+							</p>
+							<p id="small_p4">
+								<input type="button" value="X" class="X_del" title="supprimer photo2" onclick="del_photo(4);" />
+								<img id="small_img4"  src="{{ ann_fields.photo4.url }}" alt="photo4" onclick="change_pic(4);" />
+								{{ f_inputs.photo4 }}
+							</p>
+							<p id="small_p5">
+								<input type="button" value="X" class="X_del" title="supprimer photo2" onclick="del_photo(5);" />
+								<img id="small_img5"  src="{{ ann_fields.photo5.url }}" alt="photo5" onclick="change_pic(5);" />
+								{{ f_inputs.photo5 }}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div id="div_f3">
+					<h2>Description <span id="s3">(1500)</span></h2>
+					{{ f_inputs.description }}
+				</div>
+				<div id="del_div">
+					<p>{{ f_inputs.del_p2 }}</p>
+					<p>{{ f_inputs.del_p3 }}</p>
+					<p>{{ f_inputs.del_p4 }}</p>
+					<p>{{ f_inputs.del_p5 }}</p>
+				</div>
+				<div id="div_f4">
+					<p><input type="submit" value="Modifier" /></p>
+					<p><input type="button" value="Annuler" onclick="window.location.href='vendre.html';"></p>
+				</div>
+			</form>
+		</section>
+		<footer>
+			<h1>BIG NAME + LOGO</h1>
+			<div id="div3">
+				<div id="div3_1">
+					<h2>NOUS SUIVRE</h2>
+					<ul id="ul2">
+						<li><a href="https://twitter.com/" title="go to twitter" target="_blank"><img src="../static/images/contact_us/twitter.png" alt="twitter_image" /></a></li>
+						<li><a href="https://facebook.com" title="go to facebook" target="_blank"><img src="../static/images/contact_us/facebook.png" alt="facebook_image" /></a></li>
+						<li><a href="https://youtube.com" title="go to youtube" target="_blank"><img src="../static/images/contact_us/youtube.png" alt="youtube_iage" /></a></li>
+					</ul>
+				</div>
+				<div id="div3_2">
+					<h2>NOUS CONTACTER</h2>
+					<p><a href="mailto:xxx@yyy.zzz" title="Envoyer Email">Envoyer un email</a></p>
+				</div>
+				<div id="div3_3">
+					<h2>Date - Temps</h2>
+					<div>
+						<p id="date"></p>
+						<p id="temps"></p>
+					</div>
+					<p>&#169; Copyright 2018</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

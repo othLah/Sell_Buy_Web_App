@@ -1,0 +1,355 @@
+@keyframes logo_animation{
+	0% { color: red; }
+	50% { color: green; }
+	100% { color: blue; }
+}
+@keyframes categorie_animation{
+	0% {
+		color: white;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	100%{
+		color: black;
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+}
+@keyframes h1_warning{
+	0%{
+		color: red;
+		background-color: white;
+	}
+	100%{
+		color: white;
+		background-color: red;
+	}
+}
+/* body */
+body{
+	width: 1300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 5px 0px 5px 0px;
+	background-color: rgb(224, 224, 224);
+}
+a, a:visited{
+	text-decoration: none;
+}
+ul{
+	list-style-type: none;
+}
+/* top */
+header{
+	width: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
+	color: white;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+#h1_1{
+	margin: 10px 0px 10px 0px;
+	font-family: 'Rosewood Std Regular';
+	padding-left: 10px;
+	animation: logo_animation 3s linear 0s infinite alternate;
+}
+#ul1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	width: 400px;
+	margin: 10px 0px 10px 0px;
+	padding-right: 10px;
+}
+#ul1 a{
+	color: white;
+}
+#ul1 a:hover{
+	font-weight: bold;
+	text-decoration: underline;
+}
+#f_search{
+	height: 40px;
+	width: 355px;
+	border: 8px 0px 8px 0px;
+}
+input[type="search"]{
+	width: 150%;
+	height: 43px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+	position: relative;
+	left: -65px;
+	top: -7px;
+}
+#f_search button{
+	position: relative;
+	left: 425px;
+	top: -55px;
+	height: 43px;
+}
+/* center */
+section{
+	width: 92%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+	background: url("../images/vendre/background.jpg") repeat scroll;
+}
+
+h1{
+	animation: h1_warning 1s linear 0s infinite alternate;
+	font-family: 'Rockwell Condensed';
+	padding: 5px;
+	font-size: 30px;
+	border-radius: 5px;
+}
+
+#form_1{
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(226, 255, 230);
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px black;
+}
+h2{
+	margin: 0px;
+	font-size: 25px;
+	font-family: Aharoni;
+}
+#form_1 div{
+	margin: 7px 0px 7px 0px;
+}
+
+#div_f1{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+#div_f1 div{
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+#div_f1 p{
+	margin: 5px 0px 5px 0px;
+	width: 100%;
+}
+input[type="text"], input[type="number"], #select_cat{
+	width: 80%;
+	height: 40px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+}
+input[type="number"]{
+	-moz-appearance: textfield;
+  	appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+#s1{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#divf_2 div{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#f2_1{
+	/*height: 100%;*/
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+#f2_2{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#f2_2 div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#f2_2 p, #f2_2 p img{
+	width: 70%;
+	text-align: center;
+}
+#f2_2 div img{
+	width: 80%;
+	height: 100px;
+	cursor: pointer;
+}
+#f2_2 div input[type="file"]{
+	width: 170px;
+	cursor: pointer;
+}
+
+.X_del{
+	position: relative;
+	top: -84px;
+	left: 181px;
+	width: 26px;
+	height: 20px;
+	border-radius: 50%;
+	font-weight: bold;
+}
+.X_del:hover{
+	background-color: red;
+	color: white;
+}
+
+textarea{
+	resize: none;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	padding-top: 5px;
+	font-size: 17px;
+	font-weight: bold;
+	font-family: 'Tekton Pro';
+}
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, #select_cat:focus{
+	border: 2px solid black;
+}
+
+#del_div{
+	position: absolute;
+	left: -10000px;
+	top: -10000px;
+}
+
+#div_f4{
+	width: 30%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+#div_f4 input{
+	width: 120px;
+	height: 40px;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	background-color: brown;
+	border-radius:5px;
+}
+#div_f4 input:hover{
+	color: brown;
+	background-color: white;
+}
+/* bottom */
+footer{
+	width: 92%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: rgb(255, 219, 112);
+	border-radius: 5px;
+	margin: 10px 0px 10px 0px;
+}
+footer h1{
+	font-family: 'Rosewood Std Regular';
+	animation: logo_animation 3s linear 0s infinite alternate;
+	font-size: 50px;
+	margin: 10px 0px 10px 0px;
+}
+#div3{
+	width: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+#div3_1, #div3_2, #div3_3{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 33.33%;
+}
+#div3_1 h2, #div3_2 h2, #div3_3 h2{
+	margin: 10px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+}
+#div3_1 ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin: 5px;
+	width: 250px;
+	padding: 0px;
+}
+#div3_1 img:hover{
+	border: 1px white solid;
+}
+#div3_2 p{
+	padding: 15px;
+	border: 1px solid black;
+	color: black;
+	margin: 0px 0px 5px 0px;
+}
+#div3_2 p:hover{
+	border: 2px solid black;
+	font-weight: bold;
+}
+#div3_2 a, #div3_2 a:visited{
+	color: black;
+}
+#div3_3 div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+select[name="language"]{
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  margin-left: 5px;
+  border-color: #fff transparent transparent transparent;
+}
+#div3_3 p{
+	margin: 5px;
+}

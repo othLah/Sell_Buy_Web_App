@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Restauration Mot D'Email</title>
+		<link rel="stylesheet" href="{% static 'style/reset_pass_email.css' %}" />
+	</head>
+	<body>
+		<form method="POST" action="{% url 'mdp_pass_page' %}" id="div1">
+		{% csrf_token %}
+			<div id="div1_1">
+				<p>Entrer votre adresse email.</p>
+			</div>
+			<div id="div1_2">
+				<p>
+					{{ inputs.email }}
+					<input type="submit" value="OK"/>
+				</p>
+			</div>
+		</form>
+	</body>
+</html>

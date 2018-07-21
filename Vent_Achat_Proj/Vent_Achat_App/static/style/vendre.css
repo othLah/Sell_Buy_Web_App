@@ -1,0 +1,316 @@
+@keyframes logo_animation{
+	0% { color: red; }
+	50% { color: green; }
+	100% { color: blue; }
+}
+@keyframes categorie_animation{
+	0% {
+		color: white;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	100%{
+		color: black;
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+}
+/* body */
+body{
+	width: 1300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 5px 0px 5px 0px;
+	background-color: rgb(224, 224, 224);
+}
+a, a:visited{
+	text-decoration: none;
+}
+ul{
+	list-style-type: none;
+}
+/* top */
+header{
+	width: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
+	color: white;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+#h1_1{
+	margin: 10px 0px 10px 0px;
+	font-family: 'Rosewood Std Regular';
+	padding-left: 10px;
+	animation: logo_animation 3s linear 0s infinite alternate;
+}
+#ul1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	width: 400px;
+	margin: 10px 0px 10px 0px;
+	padding-right: 10px;
+}
+#ul1 a{
+	color: white;
+}
+#ul1 a:hover{
+	font-weight: bold;
+	text-decoration: underline;
+}
+#f_search{
+	height: 40px;
+	width: 355px;
+	border: 8px 0px 8px 0px;
+}
+input[type="search"]{
+	width: 150%;
+	height: 43px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+	position: relative;
+	left: -65px;
+	top: -7px;
+}
+#f_search button{
+	position: relative;
+	left: 425px;
+	top: -55px;
+	height: 43px;
+}
+/* center */
+section{
+	width: 92%;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 10px 0px 10px 0px;
+	border-radius: 5px;
+	background: url("../images/vendre/background.jpg") repeat scroll;
+	padding-bottom: 15px;
+}
+#div1{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	margin-bottom: 10px;
+}
+#div1 h2{
+	padding-left: 20px;
+	font-family: 'Rockwell Condensed';
+	font-size: 30px;
+	color: brown;
+}
+#div1 a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 20px;
+	text-decoration: none;
+	background-color: rgb(0, 178, 46);
+	color: white;
+	font-size: 20px;
+	font-family: 'Tekton Pro';
+	height: 40px;
+	width: 100%;
+	border-radius: 5px;
+}
+#div1 a:hover{
+	background-color: rgb(0, 114, 29);
+}
+#div1 a img{
+	width: 25px;
+	height: 25px;
+	padding-bottom: 5px;
+	padding-right: 3px;
+}
+#div2{
+	width: 90%;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td:nth-child(2), td:nth-child(3), td:nth-child(5){
+	text-align: center;
+}
+td:nth-child(1), td:nth-child(4){
+	padding-left: 7px;
+	width: 248.017px;
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+th{
+	height: 30px;
+	font-size: 18px;
+	background-color: #4CAF50;
+	color: white;
+	border: 1px solid grey;
+	font-family: Aharoni;
+}
+td{
+	height: 30px;
+	font-size: 18px;
+	border: 1px solid grey;
+}
+tr:nth-child(odd){
+	background-color: white;
+}
+tr:nth-child(even){
+	background-color: rgb(211, 211, 211);
+}
+td a, td a:visited, td span{
+	color: blue;
+}
+td a:hover, td span:hover{
+	color: red;
+	cursor: pointer;
+}
+
+
+#div_supp{
+	height: 100%;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: -10000px;
+	top: 0px;
+}
+#supp_prod{
+	border: black 1px solid;
+	background-color: white;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 7px;
+	display: table-column;
+}
+#supp_prod p{
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px;
+	text-align: center;
+}
+#supp_prod div:nth-child(2){
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+#supp_prod button{
+	background-color: #4CAF50;
+	width: 120px;
+	height: 40px;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+}
+#supp_prod button:hover{
+	background-color: white;
+	color: #4CAF50;
+}
+/* bottom */
+footer{
+	width: 92%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: rgb(255, 219, 112);
+	border-radius: 5px;
+	margin: 10px 0px 10px 0px;
+}
+footer h1{
+	font-family: 'Rosewood Std Regular';
+	animation: logo_animation 3s linear 0s infinite alternate;
+	font-size: 50px;
+	margin: 10px 0px 10px 0px;
+}
+#div3{
+	width: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+#div3_1, #div3_2, #div3_3{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 33.33%;
+}
+#div3_1 h2, #div3_2 h2, #div3_3 h2{
+	margin: 10px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+}
+#div3_1 ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin: 5px;
+	width: 250px;
+	padding: 0px;
+}
+#div3_1 img:hover{
+	border: 1px white solid;
+}
+#div3_2 p{
+	padding: 15px;
+	border: 1px solid black;
+	color: black;
+	margin: 0px 0px 5px 0px;
+}
+#div3_2 p:hover{
+	border: 2px solid black;
+	font-weight: bold;
+}
+#div3_2 a, #div3_2 a:visited{
+	color: black;
+}
+#div3_3 div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+select{
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  margin-left: 5px;
+  border-color: #fff transparent transparent transparent;
+}
+#div3_3 p{
+	margin: 5px;
+}

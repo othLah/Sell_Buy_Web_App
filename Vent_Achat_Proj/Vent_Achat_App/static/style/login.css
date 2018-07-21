@@ -1,0 +1,78 @@
+body{
+	background: url('../images/login_register/background.jpg') no-repeat scroll;
+	background-size: 100vw 100vh;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#div1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(255, 255, 255, 0.5);
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px black;
+}
+
+h1{
+	font-family: 'Rosewood Std Regular';
+	font-size: 60px;
+	animation: h1_login_animation 3s linear 0s infinite alternate;
+	margin: 2px 0px 10px 0px;
+}
+@keyframes h1_login_animation{
+	0% {color: red;}
+	50% {color: green;}
+	100% {color: blue;}
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+p{
+	margin: 3px;
+}
+input[type="text"], input[type="password"]{
+	width: 350px;
+	height: 40px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+}
+input[type="text"]:focus, input[type="password"]:focus{
+	border: 2px black solid;
+}
+input[type="submit"]{
+	width: 120px;
+	height: 40px;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	background-color: brown;
+	border-radius:5px;
+}
+
+#div2{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+a:visited{
+	color: blue;
+}
+a:hover{
+	color: green;
+}

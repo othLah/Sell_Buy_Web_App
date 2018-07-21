@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="{% static 'style/acheter.css' %}" />
+		<title>Acheter</title>
+		<script type="text/javascript" src="{% static 'scripts/acheter.js' %}"></script>
+	</head>
+	<body onload="go_first();">
+		<header>
+			<h1 id="h1_1">Electro-SB</h1>
+			<form method="GET" action="{% url 'acheter_page' %}" id="f_search">
+				{{ search_bar.bar }}
+				<button type="submit" id="search_butt"><img src="{% static 'images/search.png' %}" title="cherche maintenant" /></button>
+			</form>
+			<ul id="ul1">
+				<li><a href="{% url 'accueil_page' %}">Accueil</a></li>
+				<li><a href="{% url 'acheter_page' %}">Acheter</a></li>
+				<li><a href="{% url 'vendre_page' %}">Vendre</a></li>
+				{% if 'userID' in request.session %}
+				<li><a href="{% url 'profile_page' %}">Profile</a></li>
+				<li><a href="{% url 'deconnexion_processus' %}">Déconnexion</a></li>
+				{% else %}
+				<li><a href="{% url 'enregistrer_page' %}">S'enregistrer</a></li>
+				<li><a href="{% url 'connexion_page' %}">Connexion</a></li>
+				{% endif %}
+			</ul>
+		</header>
+		<section>
+			<div id="div1">
+				<form method="GET" action="{% url 'acheter_page' %}" id="form1">
+					<div id="f1">
+						<h2>Catégorie:</h2>
+						<p>{{ inputs.categorie }}</p>
+					</div>
+					<div id="f2">
+						<h2>Trié Par:</h2>
+						<p>{{ inputs.trier_par }}</p>
+					</div>
+					<div id="f3">
+						<h2>Prix:</h2>
+						<p>{{ inputs.min_prix }} <span>=></span> {{ inputs.max_prix }}</p>
+					</div>
+					<p id="p1"><input type="submit" value="Rechercher" /></p>
+				</form>
+			</div>
+			<div id="div2"></div>
+			<div id="div3">
+				{% if nothing %}
+					<p id="no_data_found">« AUCUNE DONNEE DISPONIBLE »</p>
+				{% else %}
+					{% for p in infos %}
+					<div class="div3_1">
+						<a href="{% url 'produit_page' p.id %}" title="{{ p.titre }}">
+							<p><img src="{{ p.photo1.url }}" alt="img1" /></p>
+							<div>
+								<h3>{{ p.titre }}</h3>
+								<div>
+									<p>{{ p.date_depot|date:"d/m/Y" }}</p>
+									<p>{{ p.prix }}DH</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+				{% endif %}
+		</section>
+		<footer>
+			<h1>Electro-SB</h1>
+			<div id="div4">
+				<div id="div4_1">
+					<h2>NOUS SUIVRE</h2>
+					<ul id="ul2">
+						<li><a href="https://twitter.com/" title="go to twitter" target="_blank"><img src="../static/images/contact_us/twitter.png" alt="twitter_image" /></a></li>
+						<li><a href="https://facebook.com" title="go to facebook" target="_blank"><img src="../static/images/contact_us/facebook.png" alt="facebook_image" /></a></li>
+						<li><a href="https://youtube.com" title="go to youtube" target="_blank"><img src="../static/images/contact_us/youtube.png" alt="youtube_iage" /></a></li>
+					</ul>
+				</div>
+				<div id="div4_2">
+					<h2>NOUS CONTACTER</h2>
+					<p><a href="mailto:xxx@yyy.zzz" title="Envoyer Email">Envoyer un email</a></p>
+				</div>
+				<div id="div4_3">
+					<h2>Date - Temps</h2>
+					<div>
+						<p id="date"></p>
+						<p id="temps"></p>
+					</div>
+					<p>&#169; Copyright 2018</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

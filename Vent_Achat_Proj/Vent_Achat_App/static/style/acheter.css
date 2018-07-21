@@ -1,0 +1,346 @@
+@keyframes logo_animation{
+	0% { color: red; }
+	50% { color: green; }
+	100% { color: blue; }
+}
+@keyframes categorie_animation{
+	0% {
+		color: white;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	100%{
+		color: black;
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+}
+/* body */
+body{
+	width: 1300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 5px 0px 5px 0px;
+	background-color: rgb(224, 224, 224);
+}
+a, a:visited{
+	text-decoration: none;
+}
+ul{
+	list-style-type: none;
+}
+/* top */
+header{
+	width: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
+	color: white;
+	padding: 7px;
+}
+#h1_1{
+	margin: 10px 0px 10px 0px;
+	font-family: 'Rosewood Std Regular';
+	padding-left: 10px;
+	animation: logo_animation 3s linear 0s infinite alternate;
+}
+#ul1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	width: 400px;
+	margin: 10px 0px 10px 0px;
+	padding-right: 10px;
+}
+#ul1 a{
+	color: white;
+}
+#ul1 a:hover{
+	font-weight: bold;
+	text-decoration: underline;
+}
+#f_search{
+	height: 40px;
+	width: 355px;
+	border: 8px 0px 8px 0px;
+}
+input[type="search"]{
+	width: 150%;
+	height: 43px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+	position: relative;
+	left: -65px;
+	top: -7px;
+}
+#f_search button{
+	position: relative;
+	left: 426px;
+	top: -55px;
+	height: 43px;
+}
+/* center */
+section{
+	width: 92%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0px 10px 0px;
+	border-radius: 5px;
+	background: url("../images/acheter/background.jpg") repeat scroll;
+}
+#div1{
+	width: 100%;
+	margin: 7px 0px 7px 0px;
+}
+#div1 form{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+#f1, #f2{
+	width: 25%;
+}
+#f3{
+	width: 25%
+}
+#f4{
+	width: 25%;
+}
+#div2{
+	width: 100%;
+	height: 2px;
+	background-color: black;
+	margin: 7px 0px 7px 0px;
+}
+#p1{
+	margin: 0px;
+	height: 56px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+#div3{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 7px 0px 7px 0px;
+}
+
+#no_data_found{
+	width: 100%;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.div3_1{
+	width: 33%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 7px 0px 7px 0px;
+}
+.div3_1 a{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	box-shadow: 2px 2px 2px black;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+.div3_1 a, .div3_1 a:visited{
+	color: black;
+	text-decoration: none;
+}
+.div3_1 a:hover{
+	background-color: rgb(234, 243, 255);
+}
+.div3_1 a div{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+.div3_1 a img{
+	width: 255px;
+	height: 255px;
+}
+.div3_1 a div div{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.div3_1 h3{
+	padding-left: 5px;
+	margin: 4px 0px 4px 0px;
+	font-family: "Rockwell Condensed";
+	font-size: 23px;
+	white-space: nowrap;
+	width: 99%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.div3_1 div div p{
+	font-size: 18px;
+	padding: 0px 5px 0px 5px;
+	margin: 4px 0px 4px 0px;
+}
+
+#select_cat, #select_trie{
+	width: 80%;
+	height: 40px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+}
+#in1, #in2{
+	width: 40%;
+	height: 30px;
+	border: 1px black solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+	-moz-appearance: textfield;
+  	appearance: textfield;
+}
+#in1::-webkit-inner-spin-button, 
+#in1::-webkit-outer-spin-button,
+#in2::-webkit-inner-spin-button, 
+#in2::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+#select_cat:focus, #select_trie:focus, #in1:focus, #in2:focus{
+	border: 2px solid black;
+}
+span{
+	height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Tekton Pro';
+}
+input[type="submit"]{
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	background-color: brown;
+	border-radius:5px;
+}
+#form1 div h2, #form1 div p{
+	margin: 1.5px 0px 1.5px 0px;
+}
+#form1 h2{
+	font-family: Aharoni;
+}
+/* bottom */
+footer{
+	width: 92%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: rgb(255, 219, 112);
+	border-radius: 5px;
+	margin: 10px 0px 10px 0px;
+}
+footer h1{
+	font-family: 'Rosewood Std Regular';
+	animation: logo_animation 3s linear 0s infinite alternate;
+	font-size: 50px;
+	margin: 10px 0px 10px 0px;
+}
+#div4{
+	width: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+#div4_1, #div4_2, #div4_3{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 33.33%;
+}
+#div4_1 h2, #div4_2 h2, #div4_3 h2{
+	margin: 10px 0px 5px 0px;
+	font-family: 'Tekton Pro';
+}
+#div4_1 ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin: 5px;
+	width: 250px;
+	padding: 0px;
+}
+#div4_1 img:hover{
+	border: 1px white solid;
+}
+#div4_2 p{
+	padding: 15px;
+	border: 1px solid black;
+	color: black;
+	margin: 0px 0px 5px 0px;
+}
+#div4_2 p:hover{
+	border: 2px solid black;
+	font-weight: bold;
+}
+#div4_2 a, #div4_2 a:visited{
+	color: black;
+}
+#div4_3 div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#select_lang{
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  margin-left: 5px;
+  border-color: #fff transparent transparent transparent;
+}
+#div4_3 p{
+	margin: 5px;
+}

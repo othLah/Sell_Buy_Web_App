@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Restauration Mot De Passe</title>
+		<link rel="stylesheet" href="{% static 'style/reset_pass_pass.css' %}" />
+	</head>
+	<body>
+		<form method="POST" action="{% url 'mdp_verifier_process' user %}" id="div1">
+		{% csrf_token %}
+			<div id="div1_1">
+				<p>Un nouveau mot de passe a été envoyer à votre adresse email.<br />Veuillez le récupérer et l'écrire ci-dessous</p>
+			</div>
+			<div id="div1_2">
+				<p>
+					{{ inputs.password }}
+					<input type="submit" value="Vérifier"/>
+				</p>
+			</div>
+		</form>
+	</body>
+</html>

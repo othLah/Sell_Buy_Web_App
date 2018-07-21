@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="{% static 'style/vendre.css' %}" />
+		<title>Vendre</title>
+		<script type="text/javascript" src="{% static 'scripts/vendre.js' %}"></script>
+	</head>
+	<body id="body_id" onload="go_first();">
+		<header>
+			<h1 id="h1_1">Electro-SB</h1>
+			<form method="GET" action="{% url 'acheter_page' %}" id="f_search">
+				{{ search_bar.bar }}
+				<button type="submit" id="search_butt"><img src="{% static 'images/search.png' %}" title="cherche maintenant" /></button>
+			</form>
+			<ul id="ul1">
+				<li><a href="{% url 'accueil_page' %}">Accueil</a></li>
+				<li><a href="{% url 'acheter_page' %}">Acheter</a></li>
+				<li><a href="{% url 'vendre_page' %}">Vendre</a></li>
+				<li><a href="{% url 'profile_page' %}">Profile</a></li>
+				<li><a href="{% url 'deconnexion_processus' %}">Déconnexion</a></li>
+			</ul>
+		</header>
+		<section>
+			<div id="div1">
+				<h2>Vos Produits</h2>
+				<div>
+					<a href="{% url 'nouvelle_annonce_page' %}"><img src="../static/images/vendre/plus.png" title="plus_image" /> Nouveau Produit</a>
+				</div>
+			</div>
+			<div id="div2">
+				<table>
+					<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Date</th>
+							<th>Catégorie</th>
+							<th>Prix (DH)</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for x in infos %}
+						<tr>
+							<td class="title_id">{{ x.titre }}</td>
+							<td>{{ x.date_depot|date:"d/m/Y" }}</td>
+							<td>{{ x.categorie }}</td>
+							<td>{{ x.prix }}</td>
+							<td><div><a href="{% url 'modifier_annonce_page' x.id %}">modifier</a> / <span onclick="display_supp({{ x.id }});">supprimer</span></div></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<footer>
+			<h1>Electro-SB</h1>
+			<div id="div3">
+				<div id="div3_1">
+					<h2>NOUS SUIVRE</h2>
+					<ul id="ul2">
+						<li><a href="https://twitter.com/" title="go to twitter" target="_blank"><img src="../static/images/contact_us/twitter.png" alt="twitter_image" /></a></li>
+						<li><a href="https://facebook.com" title="go to facebook" target="_blank"><img src="../static/images/contact_us/facebook.png" alt="facebook_image" /></a></li>
+						<li><a href="https://youtube.com" title="go to youtube" target="_blank"><img src="../static/images/contact_us/youtube.png" alt="youtube_iage" /></a></li>
+					</ul>
+				</div>
+				<div id="div3_2">
+					<h2>NOUS CONTACTER</h2>
+					<p><a href="mailto:xxx@yyy.zzz" title="Envoyer Email">Envoyer un email</a></p>
+				</div>
+				<div id="div3_3">
+					<h2>Date - Temps</h2>
+					<div>
+						<p id="date"></p>
+						<p id="temps"></p>
+					</div>
+					<p>&#169; Copyright 2018</p>
+				</div>
+			</div>
+		</footer>
+
+		<div id="div_supp">
+			<div id="supp_prod">
+				<div>
+					<p>
+						Ce produit sera définitivement supprimer de la Base De Données et donc vous ne pouvez jamais le récupérer<br/>
+						Voulez-vous vraiment supprimer ce produit ???
+					</p>
+				</div>
+				<div>
+					<button onclick="click_oui();">Oui</button>
+					<button onclick="click_non();">Non</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

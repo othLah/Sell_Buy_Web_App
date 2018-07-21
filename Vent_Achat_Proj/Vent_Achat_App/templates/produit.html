@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="{% static 'style/produit.css' %}" />
+		<title>Produit N°{{ infos.id }}</title>
+		<script type="text/javascript" src="{% static 'scripts/produit.js' %}"></script>
+	</head>
+	<body onload="upload_page();">
+		<header>
+			<h1 id="h1_1">Electro-SB</h1>
+			<form method="GET" action="{% url 'acheter_page' %}" id="f_search">
+				{{ search_bar.bar }}
+				<button type="submit" id="search_butt"><img src="{% static 'images/search.png' %}" title="cherche maintenant" /></button>
+			</form>
+			<ul id="ul1">
+				<li><a href="{% url 'accueil_page' %}">Accueil</a></li>
+				<li><a href="{% url 'acheter_page' %}">Acheter</a></li>
+				<li><a href="{% url 'vendre_page' %}">Vendre</a></li>
+				{% if 'userID' in request.session %}
+				<li><a href="{% url 'profile_page' %}">Profile</a></li>
+				<li><a href="{% url 'deconnexion_processus' %}">Déconnexion</a></li>
+				{% else %}
+				<li><a href="{% url 'enregistrer_page' %}">S'enregistrer</a></li>
+				<li><a href="{% url 'connexion_page' %}">Connexion</a></li>
+				{% endif %}
+			</ul>
+		</header>
+		<section>
+			<div id="div1">
+				<h2 id="h2_title">{{ infos.titre }}</h2>
+				<h2><span id="s_prix">Prix:</span> {{ infos.prix }}DH</h2>
+			</div>
+			<div id="div2">
+				<p><img id="big_one" src="" alt="Photo"></p>
+				<div>
+					<p id="small_p1">
+						<img id="small_img1" src="{{ infos.photo1.url }}" alt="photo1" onclick="change_pic(1);" />
+					</p>
+					<p id="small_p2">
+						<img id="small_img2"  src="{{ infos.photo2.url }}" alt="photo2" onclick="change_pic(2);" />
+					</p>
+					<p id="small_p3">
+						<img id="small_img3"  src="{{ infos.photo3.url }}" alt="photo3" onclick="change_pic(3);" />
+					</p>
+					<p id="small_p4">
+						<img id="small_img4"  src="{{ infos.photo4.url }}" alt="photo4" onclick="change_pic(4);" />
+					</p>
+					<p id="small_p5">
+						<img id="small_img5"  src="{{ infos.photo5.url }}" alt="photo5" onclick="change_pic(5);" />
+					</p>
+				</div>
+			</div>
+			<div id="div3">
+				<h2>Description:</h2>
+				<textarea cols="130" rows="13" disabled>{{ infos.description }}</textarea>
+			</div>
+			<p id="p1">
+				<button onclick="go_achat({{ infos.id }});"><img src="{% static 'images/produits/buy.png' %}" alt="packet_image" /> <span>Acheter</span></button>
+			</p>
+		</section>
+		<footer>
+			<h1>Electro-SB</h1>
+			<div id="div4">
+				<div id="div4_1">
+					<h2>NOUS SUIVRE</h2>
+					<ul id="ul2">
+						<li><a href="https://twitter.com/" title="go to twitter" target="_blank"><img src="{% static 'images/contact_us/twitter.png' %}" alt="twitter_image" /></a></li>
+						<li><a href="https://facebook.com" title="go to facebook" target="_blank"><img src="{% static 'images/contact_us/facebook.png' %}" alt="facebook_image" /></a></li>
+						<li><a href="https://youtube.com" title="go to youtube" target="_blank"><img src="{% static 'images/contact_us/youtube.png' %}" alt="youtube_iage" /></a></li>
+					</ul>
+				</div>
+				<div id="div4_2">
+					<h2>NOUS CONTACTER</h2>
+					<p><a href="mailto:xxx@yyy.zzz" title="Envoyer Email">Envoyer un email</a></p>
+				</div>
+				<div id="div4_3">
+					<h2>Date - Temps</h2>
+					<div>
+						<p id="date"></p>
+						<p id="temps"></p>
+					</div>
+					<p>&#169; Copyright 2018</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="{% static 'style/profile.css' %}" />
+		<title>Profile</title>
+		<script type="text/javascript" src="{% static 'scripts/profile.js' %}"></script>
+	</head>
+	<body id="body_id" onload="go_first();">
+		<header>
+			<h1 id="h1_1">Electro-SB</h1>
+			<form method="GET" action="{% url 'acheter_page' %}" id="f_search">
+				{{ search_bar.bar }}
+				<button type="submit" id="search_butt"><img src="{% static 'images/search.png' %}" title="cherche maintenant" /></button>
+			</form>
+			<ul id="ul1">
+				<li><a href="{% url 'accueil_page' %}">Accueil</a></li>
+				<li><a href="{% url 'acheter_page' %}">Acheter</a></li>
+				<li><a href="{% url 'vendre_page' %}">Vendre</a></li>
+				<li><a href="{% url 'profile_page' %}">Profile</a></li>
+				<li><a href="{% url 'deconnexion_processus' %}">Déconnexion</a></li>
+			</ul>
+		</header>
+		<section>
+			<div id="div1">
+				<div id="div1_1">
+					<h2>Générale Informations</h2>
+					<form method="POST" action="{% url 'generale_processus' %}" class="form_3">
+					{% csrf_token %}
+						<div>
+							<p class="p_label"><label for="f_name">Nom</label></p>
+							<p class="p_input">{{ generale_in.nom }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="l_name">Prénom</label></p>
+							<p class="p_input">{{ generale_in.prenom }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="username">Nom d'utilisateur</label></p>
+							<p class="p_input">{{ generale_in.username }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="tele">Téléphone</label></p>
+							<p class="p_input">{{ generale_in.tele }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="sexe">Sexe</label></p>
+							{% for s in generale_in.sexe %}
+							<div>
+								<p>{{ s.tag }}<label for="{{ s.id_for_label }}">{{ s.choice_label }}</label></p>
+							</div>
+							{% endfor %}
+						</div>
+						<p class="p_submit"><input type="submit" value="Changer" /></p>
+					</form>
+				</div>
+				<div id="div1_2">
+					<h2>Adresse Informations</h2>
+					<form method="POST" action="{% url 'adresse_processus' %}" class="form_3">
+					{% csrf_token %}
+						<div>
+							<p class="p_label"><label for="rue_immeuble">Rue/Immeuble</label></p>
+							<p class="p_input">{{ adresse_in.rue_immeuble }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="num">Numéro</label></p>
+							<p class="p_input">{{ adresse_in.numero }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="ville">Ville</label></p>
+							<p class="p_input">{{ adresse_in.ville }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="coe_pos">Code Postal</label></p>
+							<p class="p_input">{{ adresse_in.code_postal }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="pays">Pays</label></p>
+							<p class="p_input">
+								{{ adresse_in.pays }}
+							</p>
+						</div>
+						<p class="p_submit"><input type="submit" value="Changer" /></p>
+					</form>
+				</div>
+			</div>
+			<div id="div2">
+				<div id="div2_1">
+					<h2>Email</h2>
+					<form method="POST" action="{% url 'email_processus' %}" class="form_3">
+					{% csrf_token %}
+						<div>
+							<p class="p_label"><label for="old_email">Ancien Email</label></p>
+							<p class="p_input">{{ email_in.old_email }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="new_email">Nouveau Email</label></p>
+							<p class="p_input">{{ email_in.new_email }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="r_new_email">Confirmer Nouveau Email</label></p>
+							<p class="p_input">{{ email_in.confirm_new_email }}</p>
+						</div>
+						<p class="p_submit"><input type="submit" value="Changer" /></p>
+					</form>
+				</div>
+				<div id="div1_2">
+					<h2>Mot De Passe</h2>
+					<form method="POST" action="{% url 'password_processus' %}" class="form_3">
+					{% csrf_token %}
+						<div>
+							<p class="p_label"><label for="old_pass">Ancien Mot De Passe</label></p>
+							<p class="p_input">{{ motdepasse_in.old_password }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="new_pass">Nouveau Mot De Passe</label></p>
+							<p class="p_input">{{ motdepasse_in.new_password }}</p>
+						</div>
+						<div>
+							<p class="p_label"><label for="r_new_pass">Confirmer Nouveau Mot De Passe</label></p>
+							<p class="p_input">{{ motdepasse_in.confirm_new_password }}</p>
+						</div>
+						<p class="p_submit"><input type="submit" value="Changer" /></p>
+					</form>
+				</div>
+			</div>
+			<div id="div3">
+				<div id="div3_1">
+					<h2>Supprimer Votre Compte</h2>
+					<div>
+						<p>
+						Votre compte sera définitivement supprimer de la Base De Données et donc vous ne pouvez jamais le récupérer, aussi la suppression de votre compte supprime définitivement vos produits de la base de données et donc ils ne seront jamais visible dans la page des achats.</p>
+						<button onclick="display_supp({{ user_id_nbre }});" class="b_choice">Supprimer</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<h1>Electro-SB</h1>
+			<div id="div4">
+				<div id="div4_1">
+					<h2>NOUS SUIVRE</h2>
+					<ul id="ul2">
+						<li><a href="https://twitter.com/" title="go to twitter" target="_blank"><img src="../static/images/contact_us/twitter.png" alt="twitter_image" /></a></li>
+						<li><a href="https://facebook.com" title="go to facebook" target="_blank"><img src="../static/images/contact_us/facebook.png" alt="facebook_image" /></a></li>
+						<li><a href="https://youtube.com" title="go to youtube" target="_blank"><img src="../static/images/contact_us/youtube.png" alt="youtube_iage" /></a></li>
+					</ul>
+				</div>
+				<div id="div4_2">
+					<h2>NOUS CONTACTER</h2>
+					<p><a href="mailto:xxx@yyy.zzz" title="Envoyer Email">Envoyer un email</a></p>
+				</div>
+				<div id="div4_3">
+					<h2>Date - Temps</h2>
+					<div>
+						<p id="date"></p>
+						<p id="temps"></p>
+					</div>
+					<p>&#169; Copyright 2018</p>
+				</div>
+			</div>
+		</footer>
+
+		<div id="div_supp">
+			<div id="supp_prod">
+				<div>
+					<p>
+						Voulez-vous vraiment supprimer votre compte ???
+					</p>
+				</div>
+				<div>
+					<button onclick="click_oui();" class="b_choice">Oui</button>
+					<button onclick="click_non();" class="b_choice">Non</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
