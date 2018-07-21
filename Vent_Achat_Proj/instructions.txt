@@ -1,0 +1,12 @@
+1. installer Python 3.6.x
+
+2. lancer la commande: pip3 install django pillow django-paypal psycopg2
+
+3. installer PostgreSQL et créer une base de données nommée django et avec Atyl321laS comme mot de passe
+
+4. lancer les 3 commandes suivantes:
+	=> python manage.py makemigrations
+	=> python manage.py migrate
+	=> python manage.py runserver
+
+5. naviguer à l'adresse locale avec le port 8000: 127.0.0.1:8000
